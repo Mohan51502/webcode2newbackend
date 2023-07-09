@@ -98,7 +98,7 @@ router.get("/getAllUser", async function (req, res, next) {
 
   router.get("/getUseronly", async function (req, res, next) {
     try {
-      const response = await userdb.find();
+      const response = await userdb.find({role:"employee"});
       if (response.length > 0) {
         res.status(200).json({
           message: "Users Fetched Successfully!!!",
